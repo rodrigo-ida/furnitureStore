@@ -1,0 +1,59 @@
+@mixin header-btn() {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    .header__burger-btn-container{
+        width: 33%;
+        display: flex;
+        align-items: center;
+    
+        .header__burger-btn{
+            @include header-btn();
+            outline: none;
+        }
+    }
+
+    .logo{
+        width: 33%;
+        justify-self: center;
+        text-align: center;
+
+    }
+
+    .header__right-btns{
+        display: flex;
+        width: 33%;
+        align-items: center;
+        justify-self: right;
+        padding-left: 46px;
+        
+
+
+        button{
+            @include header-btn();
+            margin-right: 10px;
+
+        }
+
+        .header__right-btns__cart {
+            background-color: black;
+            color: white;
+            border-radius: 40px;
+            width: 23px;
+            height: 23px;
+           
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+    }
+}
