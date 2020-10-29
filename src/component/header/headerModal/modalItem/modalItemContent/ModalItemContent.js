@@ -4,7 +4,10 @@ import './ModalItemContent.scss'
 
 export default props => {
 
+    if(props.title)
+
     return(
+
         <div className={`modal-item__content ${props.title}`}>
             <button onClick={props.itemContentCloseBtnHandler}>&larr; Voltar</button>
             <hr></hr>

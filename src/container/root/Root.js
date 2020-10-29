@@ -7,21 +7,14 @@ import Carousel from '../../component/carousel/Carousel'
 
 class Root extends Component{
 
-    state = {
-        headerModalToggle: false
-    }
 
-    navburgerBtnHandler = () => {
-        console.log(this.state.headerModalToggle);
-        this.setState((prevState) => { return {headerModalToggle: !prevState.headerModalToggle}
-    })}
     
     
     render(){
 
         return(
             <div className="root">
-                <Header navburgerBtnHandler={this.navburgerBtnHandler} headerModalToggleState={this.state.headerModalToggle}/>
+                <Header />
                 <Carousel />
             </div>
         )

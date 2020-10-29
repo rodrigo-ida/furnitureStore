@@ -6,30 +6,91 @@
 
 }
 
-
-.first{
-
-    background-image: url('../../../assets/carouselImg/img1.jpg');
-    
+.first, .second, .third{
+    background-color: #eeeeee;
     height: 100%;
     background-size: 203%;
     background-position: -206px;
     background-repeat: no-repeat;
+    transition: background-size 5s linear 1s;
+
+    .carousel-item__text-container{
+
+        padding: 60px 0px 0px 40px;
+        transform: skew(8deg);
+        transition: all 2s ease-in 1s;
+        
+
+        .carousel-item__category-container{
+
+
+            .carousel-item__category{
+                color: darkgoldenrod;
+                font-weight: 400;
+                padding-bottom: 30px;
+
+            }
+        }
+
+        .carousel-item__title-container{
+
+            padding-bottom: 46px;
+
+            .carousel-item__title{
+                font-weight: 600;
+                font-size: 26px;
+            }
+
+        }
+
+        .carousel-item__shop-now-container{
+            border-bottom: 2px solid;
+            width: 135px;
+            text-align: center;
+            padding-bottom: 12px;
+        
+        }
+
+    }
+
+
 }
+
+.first{
+    background-image: url('../../../assets/carouselImg/img1.jpg');
+    .carousel-item__text-container{
+        .carousel-item__category-container{
+            .carousel-item__category{
+                color: darkgoldenrod;
+            }
+        }
+    }
+}
+
 .second{
-    
+
     background-image: url('../../../assets/carouselImg/img2.webp');
-    height: 100%;
-    background-size: cover;
-    background-position: -206px;
-    background-repeat: no-repeat;
 
+    .carousel-item__text-container{
+        .carousel-item__category-container{
+            .carousel-item__category{
+                color: red;
+            }
+        }
+    }
 }
+
+
+
 .third{
-
     background-image: url('../../../assets/carouselImg/img3.webp');
-    height: 100%;
-    background-size: cover;
-    background-position: -206px;
-    background-repeat: no-repeat;
+
+    .carousel-item__text-container{
+        .carousel-item__category-container{
+            .carousel-item__category{
+                color: green;
+            }
+        }
+    }
 }
+

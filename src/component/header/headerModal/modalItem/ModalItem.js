@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 
 import './ModalItem.scss'
 
 import ModalItemContent from './modalItemContent/ModalItemContent'
 
 export default props => {
+
+    const paragraph = useRef(null)
+
     
 
     const contentToggle = (event, contentLeftValue) => {
@@ -20,13 +23,32 @@ export default props => {
             content.style.left = `${contentLeftValue}%`
     }
 
+
+    const paragraphUp = (marginTopParagraph) => {
+
+        paragraph.current.style.marginTop = `${marginTopParagraph}px`
+
+        paragraph.current.nextElementSibling.style.marginTop = `${marginTopParagraph}px`
+        console.log(paragraph.current.nextElementSibling);
+
+    }
+    useEffect(()=> {
+        if(props.modalToggle){
+            paragraphUp(0)
+        }
+        return ()=> paragraphUp(50)
+    }, [props.modalToggle])
+
+
+
+
     const modalItemHandler = (event) => contentToggle(event,0)
     const itemContentCloseBtnHandler = (event) => contentToggle(event, 300)
 
     return(
-        <li className={`modal-item`} onClick={modalItemHandler}>
-            <p className="modal-item-paragraph">{props.children}</p>
-            <p className="modal-item-paragraph">&gt;</p>
+        <li className='modal-item' onClick={modalItemHandler}>
+            <p className="modal-item-paragraph" ref={paragraph}>{props.children}</p>
+            <p className="modal-item-paragraph" >&gt;</p>
             <ModalItemContent itemContentCloseBtnHandler={itemContentCloseBtnHandler}
             title={props.children}/>
         </li>

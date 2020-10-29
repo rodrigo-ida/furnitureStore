@@ -6,53 +6,67 @@ import ModalItem from './modalItem/ModalItem'
 
 export default props => {
 
-    useEffect(()=> modalhandler())
-            
-    //fazer a ref
-    const modalToggleHandler = (modalLeftValue, modalBackgroundOpacity, marginTopParagraph) => {
-        
-            console.log('oooo');
-            const modal = document.querySelector('.header__modal-container')
-            const modalContent = document.querySelector('.header__modal-content-align')
-            const modalParagraph = document.querySelectorAll('.modal-item-paragraph')
-            if(modalLeftValue === -100){
-                modal.style.transition = "left .3s .3s ease-in, background-color .3s ease-in"
+
+    useEffect(()=> {
+
+        const modalhandler = () =>{
+            if(props.modalToggle){
+                modalToggleHandler(0, .4)
+            }else{
+                modalToggleHandler(-100, 0)
             }
-            modal.style.left = `${modalLeftValue}%`
-            modal.style.backgroundColor = `rgba(0,0,0,${modalBackgroundOpacity})`
+        }
+        modalhandler()
+
+    }, [props.modalToggle])
+
+            
+    const modalContainer = useRef(null)
+    const modalToggleHandler = (modalLeftValue, modalBackgroundOpacity) => {
+        
+            const modalContent = modalContainer.current.childNodes[0]
+            if(modalLeftValue === -100){
+                modalContainer.current.style.transition = "left .3s .3s ease-in, background-color .3s ease-in"
+            }
+            modalContainer.current.style.left = `${modalLeftValue}%`
+            modalContainer.current.style.backgroundColor = `rgba(0,0,0,${modalBackgroundOpacity})`
             
             modalContent.style.left = `${modalLeftValue}%`
-            modalParagraph.forEach(e => e.style.marginTop = `${marginTopParagraph}px`)
             
         
     }
 
-
-    const modalhandler = () =>{
-
-        if(props.headerModalToggleState){
-            modalToggleHandler(0, .4, 0)
-        }else{
-            modalToggleHandler(-100, 0, 50)
-        }
-    }
-
-    // modalhandler()
 
 
 
     return(
-        <div className="header__modal-container">
+        <div className="header__modal-container" ref={modalContainer}>
             <div className="header__modal-content-align">
                     <div className="header__modal-close-btn">
-                        <button className="close-btn" onClick={props.navburgerBtnHandler}> X </button>
+                        <button className="close-btn" onClick={props.burgerBtnToggleHandler}> X </button>
                     </div>
                     <div className="header__modal__list">
                         <ul>
-                            <ModalItem >Início</ModalItem>
-                            <ModalItem >Categorias</ModalItem>
-                            <ModalItem >Promoções</ModalItem>
-                            <ModalItem >Contato</ModalItem>
+                            <ModalItem 
+                            modalToggle={props.modalToggle}
+                            modalItemMenu={props.modalItemMenu} 
+                            setModalItemMenu={props.setModalItemMenu}
+                            >Início</ModalItem>
+                            <ModalItem 
+                            modalToggle={props.modalToggle}
+                            modalItemMenu={props.modalItemMenu} 
+                            setModalItemMenu={props.setModalItemMenu}
+                            >Categorias</ModalItem>
+                            <ModalItem 
+                            modalToggle={props.modalToggle}
+                            modalItemMenu={props.modalItemMenu} 
+                            setModalItemMenu={props.setModalItemMenu}
+                            >Promoções</ModalItem>
+                            <ModalItem 
+                            modalToggle={props.modalToggle}
+                            modalItemMenu={props.modalItemMenu} 
+                            setModalItemMenu={props.setModalItemMenu}
+                            >Contato</ModalItem>
                         </ul>
                     </div>
                     <div className="header__modal__account">
