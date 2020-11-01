@@ -41,11 +41,11 @@ export default props => {
             
             if(carouselState === 1){
                 
-                animation('second', 195)
+                animation('second', 198)
             }
             
             if(carouselState === 2){
-                animation('third', 190)
+                animation('third', 198)
             }
             
             

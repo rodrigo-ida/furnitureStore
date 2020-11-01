@@ -26,7 +26,7 @@ export default props => {
         
             const modalContent = modalContainer.current.childNodes[0]
             if(modalLeftValue === -100){
-                modalContainer.current.style.transition = "left .3s .3s ease-in, background-color .3s ease-in"
+                modalContainer.current.style.transition = "left .3s .2s ease-in, background-color .3s ease-in"
             }
             modalContainer.current.style.left = `${modalLeftValue}%`
             modalContainer.current.style.backgroundColor = `rgba(0,0,0,${modalBackgroundOpacity})`
@@ -47,22 +47,22 @@ export default props => {
                     </div>
                     <div className="header__modal__list">
                         <ul>
-                            <ModalItem 
+                            <ModalItem
                             modalToggle={props.modalToggle}
                             modalItemMenu={props.modalItemMenu} 
                             setModalItemMenu={props.setModalItemMenu}
                             >Início</ModalItem>
-                            <ModalItem 
+                            <ModalItem
                             modalToggle={props.modalToggle}
                             modalItemMenu={props.modalItemMenu} 
                             setModalItemMenu={props.setModalItemMenu}
                             >Categorias</ModalItem>
-                            <ModalItem 
+                            <ModalItem
                             modalToggle={props.modalToggle}
                             modalItemMenu={props.modalItemMenu} 
                             setModalItemMenu={props.setModalItemMenu}
                             >Promoções</ModalItem>
-                            <ModalItem 
+                            <ModalItem
                             modalToggle={props.modalToggle}
                             modalItemMenu={props.modalItemMenu} 
                             setModalItemMenu={props.setModalItemMenu}

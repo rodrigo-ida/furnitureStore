@@ -1,0 +1,71 @@
+// <div className="new-products">
+//             <div className="new-products__title-container">
+//                 <h3 className="new-products__title">Novos Produtos</h3>
+//                 <p className="new-products__title-subtitle">Uma seleção dos melhores produtos que acabaram de chegar!</p>
+//             </div>
+
+.new-products{
+
+    padding: 30px 0;
+
+    .new-products__title-container{
+
+        .new-products__title{
+            font-weight: 600;
+            text-align: center;
+            font-size: 18px;
+
+        }
+
+        .new-products__title-subtitle{
+
+            color: gray;
+            padding-top: 10px;
+            text-align: center;
+
+        }
+
+    }
+
+    .new-products__cards-container{
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr
+
+    }
+
+    .new-products__description{
+        padding: 40px;
+        text-align: center;
+
+        .new-products__description-title{
+            font-weight: 600;
+            font-style: italic;
+            font-size: 20px;
+            font-feature-settings: "pcap";
+            text-align: center;
+            word-spacing: 5px;
+            font-family: "Josefin Sans",sans-serif;
+
+            
+
+        }
+        .new-products__description-body{
+
+            padding: 20px;
+            text-align: left;
+            color: gray;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+
+        }
+        .new-products__description-btn{
+            padding: 10px;
+            color: white;
+            background: black;
+            width: 100%;
+
+        }
+    }
+}

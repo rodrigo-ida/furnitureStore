@@ -8,6 +8,7 @@ export default props => {
 
    const [modalToggle, setModalToggle] = useState(false)
    const [modalItemMenu, setModalItemMenu] = useState(false)
+
     
    const burgerBtnToggleHandler = ()=> setModalToggle(prev => !prev)
 
@@ -16,6 +17,7 @@ export default props => {
             <div className="header__burger-btn-container">
             <button className="header__burger-btn" onClick={burgerBtnToggleHandler}> <i className="fas fa-bars"></i></button>
             <HeaderModal 
+
                 modalToggle={modalToggle} 
                 burgerBtnToggleHandler={burgerBtnToggleHandler}
                 modalItemMenu={modalItemMenu} 

@@ -8,31 +8,13 @@ export default props => {
 
     const paragraph = useRef(null)
 
-    
-
-    const contentToggle = (event, contentLeftValue) => {
-
-        // console.log(event.currentTarget.classList[1])
-        event.stopPropagation()
-            const content = document.querySelector(`.${props.children}`)
-            const content1 = document.querySelector('.header__modal__list')
-            console.log(content);
-            content.style.position = 'absolute'
-            content.style.transition = "left .3s ease-in"
-            content.style.top = content1.offsetTop + 'px'
-            content.style.left = `${contentLeftValue}%`
-    }
-
-
-    const paragraphUp = (marginTopParagraph) => {
-
-        paragraph.current.style.marginTop = `${marginTopParagraph}px`
-
-        paragraph.current.nextElementSibling.style.marginTop = `${marginTopParagraph}px`
-        console.log(paragraph.current.nextElementSibling);
-
-    }
     useEffect(()=> {
+        const paragraphUp = (marginTopParagraph) => {
+
+            paragraph.current.style.marginTop = `${marginTopParagraph}px`
+            paragraph.current.nextElementSibling.style.marginTop = `${marginTopParagraph}px`
+    
+        }
         if(props.modalToggle){
             paragraphUp(0)
         }
@@ -40,17 +22,26 @@ export default props => {
     }, [props.modalToggle])
 
 
+    const coisa = () => {
+
+        props.setModalItemMenu(prevState => prevState = props.modalToggle)
+        console.log(props.modalItemMenu);
+    }
+
+    let modal = props.modalItemMenu === props.children ? (
+    <ModalItemContent 
+        title={props.children}
+        setModalItemMenu={props.setModalItemMenu}
+        modalItemMenu={props.modalItemMenu}
+        />) : ''
 
 
-    const modalItemHandler = (event) => contentToggle(event,0)
-    const itemContentCloseBtnHandler = (event) => contentToggle(event, 300)
 
     return(
-        <li className='modal-item' onClick={modalItemHandler}>
+        <li className='modal-item' onClick={()=> props.setModalItemMenu(prevState => prevState = props.children)}>
             <p className="modal-item-paragraph" ref={paragraph}>{props.children}</p>
             <p className="modal-item-paragraph" >&gt;</p>
-            <ModalItemContent itemContentCloseBtnHandler={itemContentCloseBtnHandler}
-            title={props.children}/>
+            {modal}
         </li>
     )
 }

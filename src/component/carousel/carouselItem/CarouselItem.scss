@@ -12,13 +12,13 @@
     background-size: 203%;
     background-position: -206px;
     background-repeat: no-repeat;
-    transition: background-size 5s linear 1s;
+    transition: background-size 5s linear .2s;
 
     .carousel-item__text-container{
 
         padding: 60px 0px 0px 40px;
         transform: skew(8deg);
-        transition: all 2s ease-in 1s;
+        transition: all 2s ease-in .2s;
         
 
         .carousel-item__category-container{
