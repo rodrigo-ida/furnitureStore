@@ -8,18 +8,18 @@ export default props => {
 
     const paragraph = useRef(null)
 
-    useEffect(()=> {
-        const paragraphUp = (marginTopParagraph) => {
+    // useEffect(()=> {
+    //     const paragraphUp = (marginTopParagraph) => {
 
-            paragraph.current.style.marginTop = `${marginTopParagraph}px`
-            paragraph.current.nextElementSibling.style.marginTop = `${marginTopParagraph}px`
+    //         paragraph.current.style.marginTop = `${marginTopParagraph}px`
+    //         paragraph.current.nextElementSibling.style.marginTop = `${marginTopParagraph}px`
     
-        }
-        if(props.modalToggle){
-            paragraphUp(0)
-        }
-        return ()=> paragraphUp(50)
-    }, [props.modalToggle])
+    //     }
+    //     if(props.modalToggle){
+    //         paragraphUp(0)
+    //     }
+    //     return ()=> paragraphUp(50)
+    // }, [props.modalToggle])
 
 
     const coisa = () => {

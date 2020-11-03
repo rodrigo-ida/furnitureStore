@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 
 import './Root.scss'
 
@@ -7,22 +7,27 @@ import Carousel from '../../component/carousel/Carousel'
 import Categories from '../../component/categories/Categories'
 import NewProducts  from '../../component/newProducts/NewProducts'
 
-class Root extends Component{
+export default props =>{
 
+    const [modalToggle, setModalToggle] = useState(false)
+    const [modalItemMenu, setModalItemMenu] = useState(false)
+ 
+    const burgerBtnToggleHandler = ()=> setModalToggle(prev => !prev)
+ 
 
-    render(){
-
-        return(
-            <div className="root">
-                <Header />
-                <Carousel />
-                <div className="main"> 
-                     <Categories />
-                     <NewProducts />
-                </div>
+    
+    return(
+        <div className="root">
+            <Header 
+            burgerBtnToggleHandler={burgerBtnToggleHandler} 
+            modalToggle={modalToggle}
+            modalItemMenu={modalItemMenu}
+            setModalItemMenu={setModalItemMenu}/>
+            <Carousel />
+            <div className="main"> 
+                    <Categories />
+                    <NewProducts />
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default Root

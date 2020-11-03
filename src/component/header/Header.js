@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import './Header.scss'
 import Logo from '../../assets/header/logo_x36.png'
@@ -6,22 +6,21 @@ import HeaderModal from './headerModal/HeaderModal'
 
 export default props => {
 
-   const [modalToggle, setModalToggle] = useState(false)
-   const [modalItemMenu, setModalItemMenu] = useState(false)
-
-    
-   const burgerBtnToggleHandler = ()=> setModalToggle(prev => !prev)
 
     return(
         <header className="header">
             <div className="header__burger-btn-container">
-            <button className="header__burger-btn" onClick={burgerBtnToggleHandler}> <i className="fas fa-bars"></i></button>
+            <button 
+            className="header__burger-btn" 
+            onClick={props.burgerBtnToggleHandler}> 
+                <i className="fas fa-bars"></i>
+            </button>
             <HeaderModal 
 
-                modalToggle={modalToggle} 
-                burgerBtnToggleHandler={burgerBtnToggleHandler}
-                modalItemMenu={modalItemMenu} 
-                setModalItemMenu={setModalItemMenu}
+                modalToggle={props.modalToggle} 
+                burgerBtnToggleHandler={props.burgerBtnToggleHandler}
+                modalItemMenu={props.modalItemMenu} 
+                setModalItemMenu={props.setModalItemMenu}
                 />
             </div>
             <div className="logo">
