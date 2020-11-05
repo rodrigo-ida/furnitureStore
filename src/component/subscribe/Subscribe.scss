@@ -1,0 +1,44 @@
+.subscribe{
+
+    padding: 40px 0;
+    font-family: "Josefin Sans",sans-serif;
+
+    .subscribe-title{
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 20px;
+
+
+    }
+    .subscribe-subtitle{
+        letter-spacing: 1px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+
+    }
+
+
+    .subscribe__input-container{
+        display: flex;
+        justify-content: center;
+        
+        .subscribe__input{
+            height: 50px;
+            border: 2px solid ;
+            width: 60%;
+        
+            
+        }
+    
+        .subscribe-btn{
+            border: 2px solid black ;
+            color: white;
+            background-color: black;
+            font-size: 20px;
+
+        
+        
+        }
+    }
+}

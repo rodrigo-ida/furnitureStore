@@ -16,11 +16,15 @@ export default props => {
                 <i className="fas fa-bars"></i>
             </button>
             <HeaderModal 
-
+            modalContent={props.modalContent}
+            setModalContent={props.setModalContent}
+            headerCloseModalBtnHandler={props.headerCloseModalBtnHandler}
                 modalToggle={props.modalToggle} 
                 burgerBtnToggleHandler={props.burgerBtnToggleHandler}
                 modalItemMenu={props.modalItemMenu} 
                 setModalItemMenu={props.setModalItemMenu}
+                modalItemshowUp={props.modalItemshowUp}
+                setmodalItemshowUp={props.setmodalItemshowUp}
                 />
             </div>
             <div className="logo">

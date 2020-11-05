@@ -10,10 +10,10 @@ export default props => {
                 <img src={props.img} alt={props.alt} className="new-products__card__img"/>
             </div>
             <ul className="new-products__card__icon-list" >
-                <li className="new-products__card__icon"><i className="far fa-eye"></i></li>
-                <li className="new-products__card__icon"><i className="fas fa-shopping-cart"></i></li>
-                <li className="new-products__card__icon"><i className="far fa-heart"></i></li>
-                <li className="new-products__card__icon"><i className="fas fa-share-alt"></i></li>
+                <li className="new-products__card__icon"><button><i className="far fa-eye"></i></button></li>
+                <li className="new-products__card__icon"><button><i className="fas fa-shopping-cart"></i></button></li>
+                <li className="new-products__card__icon"><button><i className="far fa-heart"></i></button></li>
+                <li className="new-products__card__icon"><button><i className="fas fa-share-alt"></i></button></li>
             </ul>
             <div className="new-products__card_stars">
                 <ul className="new-products__card_stars__list">

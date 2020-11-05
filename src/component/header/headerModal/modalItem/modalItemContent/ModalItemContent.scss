@@ -7,3 +7,32 @@
     z-index: 2000;
 
 }
+
+.modal-item__content-entering{
+    animation: modal-item__content-entering .3s forwards;
+    
+}
+
+@keyframes modal-item__content-entering{
+    // 50%{}
+    100%{top:70px;left: 0;}
+}
+
+
+.modal-item__content-entered{
+    top: 70px;
+    left: 0;
+
+}
+
+.modal-item__content-exiting{
+
+    animation: modal-item__content-exiting .3s  forwards;
+}
+
+
+
+@keyframes modal-item__content-exiting{
+    100%{left: 100%;}
+}
+

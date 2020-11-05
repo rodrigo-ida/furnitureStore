@@ -3,23 +3,39 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 1px;
     overflow: hidden;
-    height: 46px;
+    max-height: 40px;
+    padding-top: 40px;
 
-    p{
+    .modal-item-paragraph{
         font-size: 20px;
         padding: 10px 0;
         font-weight: 600;
-        display: inline-block;
-        margin-top: 50px;
-        transition: margin-top .3s .4s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
 
     }
 
+    
+}
 
-    .modal-item-paragraph{
-        transition: margin .7s .4s;
-    }
-
+.itemEntering{
+    animation: entering .3s forwards ;
 
 }
+
+.itemEnterDone{
+    padding-top:0px;
+}
+
+@keyframes entering{
+    50%{padding-top:20px;}
+    100%{padding-top:0px;}
+}
+
+.exit{
+    background-color: darkred;
+}
+    

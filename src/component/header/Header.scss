@@ -7,8 +7,11 @@
 .header{
     width: 100vw;
     display: flex;
+    position: fixed;
     justify-content: space-between;
     padding: 20px;
+    background-color: white;
+    z-index: 5000;
 
     .header__burger-btn-container{
         width: 33%;

@@ -1,0 +1,90 @@
+
+.footer{
+    width: 100vw;
+    height: auto;
+    background-color: cadetblue;
+    padding: 40px 0 0 0;
+}
+
+.footer__bottom{
+    // background-color: #ae8253;
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    align-self: flex-end;
+
+}
+
+.footer__bottom-icons{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+
+}
+
+.footer__copyright{
+    text-align: center;
+}
+
+.footer__bottom-icons i{
+    margin-left: 14px;
+
+}
+
+.fa-facebook-f{
+    color: white;
+    background: blue;
+    padding: 10px 13px;
+    border-radius: 20px;
+}
+
+.fa-twitter{
+    color: white;
+    background: #00aced;
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+.fa-instagram{
+    color: white;
+    background: linear-gradient(to right, #ff6a00, #ee0979); 
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+.fa-pinterest-p{
+    color: white;
+    background:#cb2027;
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+
+.footer__cards{
+    display: flex;
+    padding-top: 20px;
+
+
+}
+
+.cards__icon{
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+
+.visa{
+    background-image: url('../../assets/footerCards/visa.png');
+}
+.paypal{
+    background-image: url('../../assets/footerCards/paypal.png');
+}
+.mastercard{
+    background-image: url('../../assets/footerCards/mastercard.png');
+}
+.americanexpress{
+    background-image: url('../../assets/footerCards/americanExpress.png');
+}
+

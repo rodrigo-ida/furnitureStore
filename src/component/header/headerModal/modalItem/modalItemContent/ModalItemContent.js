@@ -1,60 +1,49 @@
-import React,{useEffect, useRef} from 'react'
+import React,{useEffect} from 'react'
+import CSSTransition from 'react-transition-group/CSSTransition'
 
 import './ModalItemContent.scss'
 
-export default props => {
+export default props => { 
 
-    const itemContent = useRef(null)
-    useEffect(()=>{
-
-        const contentToggle = () => {
-
-                const content = itemContent.current
-                const content1 = itemContent.current.parentNode.parentNode
-
-                content.style.position = 'absolute'
-                content.style.transition = "left .7s ease-in"
-                content.style.top = content1.offsetTop + 'px'
-                content.style.left = `0%`
-        }
-        contentToggle()
-
-        return ()=>{
-
-        }
-
-    }, [props.modalItemMenu])
-
-    const btnHandler = (event)=>{
+    const closeBtnHandler = (event)=>{
 
         event.stopPropagation()
-
-        const content = itemContent.current
-        const content1 = itemContent.current.parentNode.parentNode
-
-        content.style.position = 'absolute'
-        content.style.transition = "left .5s ease-in"
-        content.style.top = content1.offsetTop + 'px'
-        content.style.left = `200%`
-        setTimeout(()=> props.setModalItemMenu(false), 550)
         
-
+        props.setModalContent(false)
+        setTimeout(()=> props.setModalItemMenu(false),300)
     }
+
+    const setModalContent = props.setModalContent
+
+    useEffect(()=>{
+        props.setModalContent(true)
+    },[props.modalItemMenu])
 
 
 
     return(
-        
-        <div className={`modal-item__content ${props.title}`} ref={itemContent}>
-            <button onClick={btnHandler}>&larr; Voltar</button>
-            <hr></hr>
-            <ul>
-                <li>{props.title}</li>
-                <li>{props.item1}</li>
-                <li>{props.item2}</li>
-                <li>{props.item3}</li>
-                <li>{props.item4}</li>
-            </ul>
-        </div>
+        <CSSTransition
+            in={props.modalContent}
+            mountOnEnter
+            unmountOnExit
+            timeout={300}
+            classNames={{
+                enterActive:'modal-item__content-entering',
+                enterDone:'modal-item__content-entered',
+                exit:'modal-item__content-entered',
+                exitActive:'modal-item__content-exiting',
+            }}>
+            <div className='modal-item__content' >
+                <button onClick={closeBtnHandler}>&larr; Voltar</button>
+                <hr></hr>
+                <ul>
+                    <li>{props.title}</li>
+                    <li>{props.item1}</li>
+                    <li>{props.item2}</li>
+                    <li>{props.item3}</li>
+                    <li>{props.item4}</li>
+                </ul>
+            </div>
+        </CSSTransition>
     )
 }
