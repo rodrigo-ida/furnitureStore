@@ -14,7 +14,7 @@ export default props => {
                 <p className="contact__address">São Paulo - SP</p>
             </div>
             <div className="contact__link-container">
-                <a href="#" className="contact__link">Contate-nos</a>
+                <a href="/" className="contact__link">Contate-nos</a>
             </div>
         </div>
     )

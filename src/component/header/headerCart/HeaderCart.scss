@@ -1,0 +1,122 @@
+
+
+.header__cart-container{
+
+    background-color: rgba($color: #000000, $alpha: .3);
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 200%;
+    z-index: 99999999;
+    overflow: hidden;
+    
+
+    .header-container__close-btn{
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+        font-weight: bolder;
+        position: fixed;
+        margin: 3% 0 0 90%;
+    }
+
+    .header__cart{
+        background-color: white;
+        width: 90%;
+        height: 100%;
+        margin-left: auto;
+        padding-top: 40px;
+        display: grid;
+        grid-template-rows: 3fr 1fr 2fr;
+        overflow: hidden;
+
+
+        .header__cart__list-container{
+
+            height: 100%;
+            width: 100%;
+            overflow: scroll;
+            
+            .header__cart__list{
+            
+                height: 100%;
+                width: 100%;
+                padding-left: 40px;
+                padding-top: 40px;
+
+    
+            }
+        }
+
+    }
+}
+.header__cart__subtotal{
+
+    width: 80%;
+    padding-left: 10%;
+
+    .header__cart__subtotal__line{
+        height: 5px;
+        background-color: black;
+    }
+    .header__cart__subtotal__title{
+        padding-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        
+    }
+    .header__cart__subtotal__value{
+        padding-top: 10px;
+        padding-left: 50px;
+        font-size: 18px;
+        // font-weight: bold;
+        display: inline-block;
+        
+    }
+}
+
+.header__cart__finish-btn-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header__cart__view-cart{
+        border: .3px solid gray;
+        background-color: honeydew;
+        height: 50px;
+        height: 40px;
+        width: 70%;
+        margin-bottom: 5px;
+    }
+    .header__cart__view-checkout{
+        border: 1px solid gray;
+        background-color: black;
+        color: white;
+        height: 40px;
+        width: 70%;
+    }
+}
+
+
+
+.header__cart-container-entering{
+    animation: header__cart-container-entering .3s forwards;
+
+}
+
+@keyframes header__cart-container-entering{
+    100%{ left: 0;}
+}
+
+.header__cart-container-entered{
+    left: 0;
+
+}
+
+.header__cart-container-exiting{
+
+}

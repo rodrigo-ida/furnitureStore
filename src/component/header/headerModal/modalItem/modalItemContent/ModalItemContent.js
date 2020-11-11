@@ -5,19 +5,22 @@ import './ModalItemContent.scss'
 
 export default props => { 
 
+    const {setModalContent, setModalItemMenu} = props
+    // const setModalItemMenu = props.setModalItemMenu
+
+
     const closeBtnHandler = (event)=>{
 
         event.stopPropagation()
         
-        props.setModalContent(false)
-        setTimeout(()=> props.setModalItemMenu(false),300)
+        setModalContent(false)
+        setTimeout(()=> setModalItemMenu(false),300)
     }
 
-    const setModalContent = props.setModalContent
 
     useEffect(()=>{
-        props.setModalContent(true)
-    },[props.modalItemMenu])
+        setModalContent(true)
+    },[props.modalItemMenu, setModalContent])
 
 
 
@@ -34,14 +37,14 @@ export default props => {
                 exitActive:'modal-item__content-exiting',
             }}>
             <div className='modal-item__content' >
-                <button onClick={closeBtnHandler}>&larr; Voltar</button>
+                <button className='modal-item__content__close-btn' onClick={closeBtnHandler}>&larr; Voltar</button>
                 <hr></hr>
-                <ul>
-                    <li>{props.title}</li>
-                    <li>{props.item1}</li>
-                    <li>{props.item2}</li>
-                    <li>{props.item3}</li>
-                    <li>{props.item4}</li>
+                <ul className='modal-item__content__list'>
+                    <li className='modal-item__content__list__title'>{props.title}</li>
+                    <li className='modal-item__content__list__item'>{props.item1}</li>
+                    <li className='modal-item__content__list__item'>{props.item2}</li>
+                    <li className='modal-item__content__list__item'>{props.item3}</li>
+                    <li className='modal-item__content__list__item'>{props.item4}</li>
                 </ul>
             </div>
         </CSSTransition>

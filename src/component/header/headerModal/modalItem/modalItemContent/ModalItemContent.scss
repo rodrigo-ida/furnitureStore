@@ -5,7 +5,32 @@
     width: 100%;
     height: 100%;
     z-index: 2000;
+    padding: 20px;
 
+    .modal-item__content__close-btn{
+        background-color: transparent;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+
+    }
+
+    .modal-item__content__list{
+
+        .modal-item__content__list__title{
+            font-size: 22px;
+            font-weight: bold;
+            padding: 20px 0;
+            
+        }
+        .modal-item__content__list__item{
+            font-weight: 300;
+            text-transform: none;
+            font-size: 20px;
+            line-height: 2;
+            // padding: 5px;
+        }
+    }
 }
 
 .modal-item__content-entering{

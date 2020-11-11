@@ -11,7 +11,7 @@
     justify-content: space-between;
     padding: 20px;
     background-color: white;
-    z-index: 5000;
+    z-index: 2;
 
     .header__burger-btn-container{
         width: 33%;
@@ -40,7 +40,7 @@
         
 
 
-        button{
+        .header__right-btns__search-btn{
             @include header-btn();
             margin-right: 10px;
 

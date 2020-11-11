@@ -14,6 +14,13 @@ export default props => {
         modalItemMenu={props.modalItemMenu}
         modalContent={props.modalContent}
         setModalContent={props.setModalContent}
+        item1={props.item1}
+        item2={props.item2}
+        item3={props.item3}
+        item4={props.item4}
+
+
+
         />) : ''
         
     useEffect(()=> props.setmodalItemshowUp(prev => prev = props.modalToggle))

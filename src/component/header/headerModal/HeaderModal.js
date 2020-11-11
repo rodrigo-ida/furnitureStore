@@ -7,7 +7,32 @@ import ModalItem from './modalItem/ModalItem'
 
 export default props => {
 
-    const listItemsArray = ['Inicio', 'Categorias', 'Promoções', 'Contato']
+    // const listItemsArray = ['Inicio', 'Categorias', 'Promoções', 'Contato']
+    const listItemsArray = [{nome:'Inicio',
+                            item1:'Sobre Nós',
+                            item2:'Leia Nossas Dicas',
+                            item3:'Contate-nos',
+                            item4:'Visite Nossa Loja'
+                            }, 
+                            {nome:'Categorias',
+                            item1:'Sala',
+                            item2:'Acessórios',
+                            item3:'Banheiro',
+                            item4:'Cozinha'
+                            }, 
+                            {nome:'Minha Conta',
+                            item1:'Meus Produtos',
+                            item2:'Login',
+                            item3:'esqueci minha senha',
+                            item4:'histórico de compras'
+                            }, 
+                            {nome:'Problemas no Envio',
+                            item1:'Produto danificado',
+                            item2:'Produto extraviado',
+                            item3:'Produto errado',
+                            item4:'Converse com a nossa Central'
+                            }]
+    
     const listItems = listItemsArray.map((e,index) => (
         <ModalItem
             key={e+index}
@@ -18,7 +43,11 @@ export default props => {
             setModalItemMenu={props.setModalItemMenu}
             modalItemshowUp={props.modalItemshowUp}
             setmodalItemshowUp={props.setmodalItemshowUp}
-            >{e}
+            item1={e.item1}
+            item2={e.item2}
+            item3={e.item3}
+            item4={e.item4}
+            >{e.nome}
         </ModalItem>))
 
 
