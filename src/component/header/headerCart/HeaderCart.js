@@ -7,8 +7,6 @@ import HeaderCartListItem from './headerCartListItem/HeaderCartListItem'
 
 const HeaderCart = props =>{
 
-    
-
     const listItem = props.productsData.map(e => {
         if(e.orderedQtd[0] > 0){
             return <HeaderCartListItem 
@@ -17,19 +15,17 @@ const HeaderCart = props =>{
                     price={e.price} 
                     qtd={e.orderedQtd[0]} 
                     setQtd={e.orderedQtd[1]} />
-        }else{return}
+        }
     })
 
-    const subTotalArray = []
-    const subTotalHelper = props.productsData
-        .forEach(e => {
-            subTotalArray.push(e.price * e.orderedQtd[0])
-        console.log(e.orderedQtd[0]);})
     
-    const subTotal = subTotalArray.reduce((accumulator, current)=> accumulator + current)
-
-
-
+    const subTotalCalculator = () =>{ 
+        let subTotalArray = []
+        props.productsData.forEach(e => subTotalArray.push(e.price * e.orderedQtd[0]))
+        return subTotalArray.reduce((accumulator, current)=> accumulator + current)
+        
+    }
+   
     return(
         <CSSTransition
             mountOnEnter
@@ -55,7 +51,7 @@ const HeaderCart = props =>{
                     <div className="header__cart__subtotal">
                         <hr className="header__cart__subtotal__line" ></hr>
                         <p className="header__cart__subtotal__title">Subtotal</p>
-                        <p className="header__cart__subtotal__value" >R$ {subTotal}</p>
+                        <p className="header__cart__subtotal__value" >R$ {subTotalCalculator().toFixed(2)}</p>
                     </div>
                     <div className="header__cart__finish-btn-container">
                         <button className="header__cart__view-cart">Veja seus Itens</button>

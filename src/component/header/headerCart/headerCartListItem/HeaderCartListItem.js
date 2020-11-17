@@ -23,7 +23,7 @@ const ListItem = props => {
                         <button className="header__cart__list-item__description__counter-btn"
                         onClick={()=> props.setQtd(prev=> prev + 1)}>+</button>
                     </div>
-                    <p className="header__cart__list-item__description__price">R${props.price * props.qtd}</p>
+                    <p className="header__cart__list-item__description__price">R${(props.price * props.qtd).toFixed(2)}</p>
                 </div>
             </div>
         </li>

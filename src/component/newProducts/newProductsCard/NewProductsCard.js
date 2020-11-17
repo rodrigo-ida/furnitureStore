@@ -10,7 +10,6 @@ export default props => {
     let stars = []
 
     useEffect(()=>{
-        // console.log(props.orderedQtd);
         const loremFetch = ()=>{
             fetch("http://www.randomtext.me/api/lorem/ul-1/5-10")
             .then(response => response.json())
@@ -70,7 +69,7 @@ export default props => {
                     </button>
                 </li>
                 <li className="new-products__card__icon">
-                    <button className="new-products__card__icon-btn" onClick={()=>props.orderedQtd[1](prev=> prev = + 1)}>
+                    <button className="new-products__card__icon-btn" onClick={()=>props.orderedQtd[1](prev => prev = prev + 1)}>
                         <i className="fas fa-shopping-cart"></i>
                     </button>
                 </li>
@@ -88,7 +87,6 @@ export default props => {
             <div className="new-products__card_stars">
                 <ul className="new-products__card_stars__list">
                     {stars}
-                    {/* <li className="new-products__card_stars__list__item"><i className="fas fa-star-half-alt"></i></li>  */}
                 </ul>
             
             </div>

@@ -6,12 +6,6 @@ export default props => {
 
     const position = useRef(null)
 
-    
-
-
- 
-
-    
 
     useEffect( () => {
 
@@ -21,31 +15,60 @@ export default props => {
     
             if(props.position === position1){
     
-                // first.style.backgroundSize = '185%'
                 first.style.backgroundSize = `${backgroundSize}%`
                 first.childNodes[0].style.transform = "skew(0deg)"
     
             }else{
-    
-                first.style.backgroundSize = '203%'
-                first.childNodes[0].style.transform = "skew(8deg)"
+                
+                if(window.screen.availWidth < 400){
+
+                    first.style.backgroundSize = '203%'
+                    first.childNodes[0].style.transform = "skew(8deg)"
+                }
+                if(window.screen.availWidth > 999){
+                    first.style.backgroundSize = '120%'
+
+                }
     
             }
         }
         
         const animationExecution = carouselState =>{
+            console.log(window.screen.availWidth);
+            
             if(carouselState === 0){
-                animation('first', 185)
+               if(window.screen.availWidth < 400){
+
+                   animation('first', 185)
+               }
+               if(window.screen.availWidth > 999){
+                animation('first', 125)
+                   
+               }
                 
             }
             
             if(carouselState === 1){
                 
-                animation('second', 198)
+               if(window.screen.availWidth < 400){
+
+                   animation('second', 198)
+               }
+               if(window.screen.availWidth > 999){
+                animation('second', 114)
+                   
+               }
             }
             
             if(carouselState === 2){
-                animation('third', 198)
+               if(window.screen.availWidth < 400){
+
+                   animation('third', 198)
+               }
+               if(window.screen.availWidth > 999){
+                animation('third', 114)
+                   
+               }
             }
             
             

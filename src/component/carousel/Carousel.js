@@ -12,6 +12,8 @@ export default props =>{
     let [CAROUSEL_X_POSITION, setCAROUSEL_X_POSITION] = useState(0)
     // const CAROUSEL_TIMER_VALUE = 4000
     let CAROUSEL_TIMER_ID
+    let MOUSE_MOVIMENT_ACTIVATOR = false
+
         
     // useEffect(()=> carouselSelfExecution(CAROUSEL_TIMER_VALUE), [])
     // const carouselSelfExecution = timer => CAROUSEL_TIMER_ID = setInterval(carouselSlide, timer)
@@ -86,7 +88,6 @@ export default props =>{
         }
     }
 
-
     const carouselTouchEndHandler = event => {
 
         carouselContent.current.style.transition = 'left .2s'
@@ -96,6 +97,62 @@ export default props =>{
         // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
     
     }
+
+
+    const carouselClickStartHandler = event =>{
+
+        console.log(event.button);
+        if(event.button === 2){ return;}
+            CAROUSEL_TOUCH_START = event.clientX
+            carouselContent.current.style.transition = 'left 0s'
+            clearInterval(CAROUSEL_TIMER_ID)
+        
+    }
+
+
+
+    const carouselClickMoveHandler = event =>{
+
+        if(CAROUSEL_TOUCH_START){
+
+            MOUSE_MOVIMENT_ACTIVATOR = true
+            const moviment = event.clientX
+            const movimentValue = moviment - CAROUSEL_TOUCH_START
+            
+            const carouselWidth = carouselContent.current.clientWidth / 3
+            const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
+            const photoposition = carouselSlideCounter + movimentValue
+            
+            carouselContent.current.style.left = photoposition + 'px'
+            
+            
+            if(movimentValue < 0){
+                CAROUSEL_TOUCH_END = true
+            }
+            if(movimentValue > 0){
+                CAROUSEL_TOUCH_END = false
+            }
+            
+            
+        }
+    }
+
+    const carouselClickUpHandler = event => {
+
+        if(MOUSE_MOVIMENT_ACTIVATOR === true && !!CAROUSEL_TOUCH_START === true){
+
+            carouselContent.current.style.transition = 'left .2s'
+            
+            // carouselSlide(CAROUSEL_TOUCH_END)
+            carouselslideCounter(CAROUSEL_TOUCH_END)
+            // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
+            MOUSE_MOVIMENT_ACTIVATOR = false
+            CAROUSEL_TOUCH_START = false
+        }
+        MOUSE_MOVIMENT_ACTIVATOR = false
+        CAROUSEL_TOUCH_START = false
+    
+}
 
 
 
@@ -108,6 +165,9 @@ export default props =>{
                 onTouchStart={carouselTouchStartHandler}
                 onTouchMove={carouselTouchMoveHandler}
                 onTouchEnd={carouselTouchEndHandler}
+                onMouseDown={carouselClickStartHandler}
+                onMouseMove={carouselClickMoveHandler}
+                onMouseUp={carouselClickUpHandler}
                 ref={carouselContent}
                 >
                 <CarouselItem position="first" 

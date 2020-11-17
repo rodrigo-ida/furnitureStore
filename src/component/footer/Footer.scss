@@ -1,13 +1,75 @@
+.subscribe{
 
-.footer{
+    padding: 40px 35px;
+    font-family: "Josefin Sans",sans-serif;
+
+    .subscribe__info__list{
+        display: none;
+
+        .subscribe__info__inner__list li{
+
+            padding-top: 20px;
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+    }
+
+
+    .subscribe__email{
+
+        text-align: center;
+        // justify-content: end;
+    }
+
+    .subscribe-title{
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 20px;
+
+
+    }
+    .subscribe-subtitle{
+        letter-spacing: 1px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+
+    }
+
+
+    .subscribe__input-container{
+        display: flex;
+        justify-content: center;
+        
+        .subscribe__input{
+            height: 50px;
+            border: 2px solid ;
+            width: 60%;
+        
+            
+        }
+    
+        .subscribe-btn{
+            border: 2px solid black ;
+            color: white;
+            background-color: black;
+            font-size: 20px;
+
+        
+        
+        }
+    }
+}
+.footer-container{
     width: 100vw;
     height: auto;
     background-color: cadetblue;
     padding: 40px 0 0 0;
+
 }
 
 .footer__bottom{
-    // background-color: #ae8253;
     width: 100%;
     padding-top: 20px;
     display: flex;
@@ -88,3 +150,174 @@
     background-image: url('../../assets/footerCards/americanExpress.png');
 }
 
+
+
+@media (min-width: 1000px){
+
+.footer{
+
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    height: 452px;
+    // background-color: cadetblue;
+    padding: 40px 0 0 0;
+    position: fixed;
+    z-index: -10;
+    bottom: 0;
+    left: 0;
+
+}
+
+.subscribe{
+
+    padding: 40px 35px;
+    font-family: "Josefin Sans",sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr;
+
+    .subscribe__info__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        .subscribe__info__inner__list li{
+
+            padding-top: 20px;
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+    }
+
+
+    .subscribe__email{
+
+        text-align: right;
+        justify-content: end;
+        
+        
+        .subscribe-title{
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 20px;
+            
+            
+        }
+        .subscribe-subtitle{
+            letter-spacing: 1px;
+            width: auto;
+            text-align: right;
+            padding-bottom: 20px;
+            
+        }
+        
+        
+        .subscribe__input-container{
+            display: flex;
+            justify-content: flex-end;
+            
+            .subscribe__input{
+                height: 50px;
+                border: 2px solid ;
+                width: 60%;
+                
+                
+            }
+        }
+    
+        .subscribe-btn{
+            border: 2px solid black ;
+            color: white;
+            background-color: black;
+            font-size: 20px;
+
+        
+        
+        }
+    }
+}
+    
+.footer-container{
+    width: calc(100% - 40px);
+    margin: 0 19px;
+    height: auto;
+    background-color: cadetblue;
+    padding: 40px 0 0 0;
+    position: fixed;
+    z-index: -10;
+    bottom: 0;
+    left: 0;
+    
+}
+
+.footer__bottom{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    align-self: flex-end;
+
+}
+
+.footer__bottom-icons{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+
+}
+
+.footer__copyright{
+    text-align: center;
+}
+
+.footer__bottom-icons i{
+    margin-left: 14px;
+
+}
+
+.fa-facebook-f{
+    color: white;
+    background: blue;
+    padding: 10px 13px;
+    border-radius: 20px;
+}
+
+.fa-twitter{
+    color: white;
+    background: #00aced;
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+.fa-instagram{
+    color: white;
+    background: linear-gradient(to right, #ff6a00, #ee0979); 
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+.fa-pinterest-p{
+    color: white;
+    background:#cb2027;
+    padding: 10px 11px;
+    border-radius: 20px;
+}
+
+.footer__cards{
+    display: flex;
+    padding-top: 20px;
+
+
+}
+
+.cards__icon{
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+
+
+}

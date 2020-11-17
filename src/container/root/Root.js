@@ -28,6 +28,7 @@ export default props =>{
     const [modalContent, setModalContent] = useState(false)
     const [headerCartShow, setHeaderCartShow] = useState(false)
 
+
     const [newProductModalShow, setNewProductModalShow] = useState(false)
     const [newProductModalShowProduct, setNewProductModalShowProduct] = useState(false)
     const [lorem, setLorem] = useState(false)
@@ -131,6 +132,7 @@ export default props =>{
                     setModalContent={setModalContent}
                     burgerBtnToggleHandler={burgerBtnToggleHandler} 
                     modalToggle={modalToggle}
+                    setModalToggle={setModalToggle}
                     modalItemMenu={modalItemMenu}
                     setModalItemMenu={setModalItemMenu}
                     modalItemshowUp={modalItemshowUp}
@@ -157,11 +159,15 @@ export default props =>{
                     qtdOrdered={qtdOrdered}
                     setQtdOrdered={setQtdOrdered}
                     />
-                    <Contact />
-                    <Instagram />
-                    <Subscribe />
+                    <div className="contact-container">
+
+                        <Contact />
+                        <Instagram />
+                    </div>
             </div>
-                    <Footer />
+            <div className="footer-placeholder">
+                <Footer />
+            </div>
         </div>
     )
 }

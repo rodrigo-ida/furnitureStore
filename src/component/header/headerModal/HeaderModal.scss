@@ -1,19 +1,15 @@
-
-
-.header__modal-container{
+.header__modal-container {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     top: 0;
     left: -100%;
     // transition: background-color .3s ease-in-out;
     overflow: hidden;
     z-index: 2;
 
-
-
-    .header__modal-content-align{
+    .header__modal-content-align {
         background-color: white;
         width: 80%;
         height: 100%;
@@ -23,65 +19,257 @@
         // transition: left .3s ease-in-out;
         overflow: hidden;
 
+        .header__modal-close-btn {
+            padding-bottom: 30px;
 
-            .header__modal-close-btn{
-                padding-bottom: 30px;
-                
-                button{ 
+            button {
                 background: none;
                 border: none;
                 outline: none;
                 font-size: 20px;
+            }
+        }
+
+        .header__modal__account {
+            margin: 20px 0;
+        }
+
+        .header__modal__account__list__item {
+            padding: 10px 0;
+            font-size: 18px;
+            color: lightslategrey;
+        }
+        .header__modal__my-contact{
+
+            hr {
+                height: 5px;
+                background: black;
+            }
+        }
+    }
+}
+
+.modalOpening {
+    animation: modalOpen 0.5s forwards ease-out;
+}
+
+.modalOpened {
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes modalOpen {
+    50% {
+        left: 30px;
+    }
+    100% {
+        left: 0px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.modalClosing {
+    animation: modalClosing forwards 0.5s;
+}
+
+.modalClosed {
+    left: -100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+@keyframes modalClosing {
+    50% {
+        left: 20px;
+    }
+    100% {
+        left: -100%;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@media (min-width: 1000px) {
+    .header__modal-container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0);
+        top: 0;
+        left: -100%;
+        // transition: background-color .3s ease-in-out;
+        overflow: hidden;
+        z-index: 2;
+
+        .header__modal-content-align {
+            background-color: white;
+            width: 80%;
+            height: 100%;
+            padding: 30px;
+            position: relative;
+            // left: -100%;
+            // transition: left .3s ease-in-out;
+            overflow: hidden;
+
+            .header__modal-close-btn {
+                padding-bottom: 30px;
+
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    font-size: 20px;
                 }
             }
 
-
-            
-            .header__modal__account{
+            .header__modal__account {
                 margin: 20px 0;
             }
-            
-            .header__modal__account__list__item{
-                
+
+            .header__modal__account__list__item {
                 padding: 10px 0;
                 font-size: 18px;
                 color: lightslategrey;
+            }
 
+            .header__modal__my-contact{
+                display: none;
+
+                hr {
+                    height: 5px;
+                    background: black;
+                }
             }
         }
 
-        hr{
-            height: 5px;
-            background: black;
+    }
+
+    .modalOpening {
+        animation: modalOpen 0.5s forwards ease-out;
+    }
+
+    .modalOpened {
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes modalOpen {
+        50% {
+            left: 30px;
         }
+        100% {
+            left: 0px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .modalClosing {
+        animation: modalClosing forwards 0.5s;
+    }
+
+    .modalClosed {
+        left: -100%;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    @keyframes modalClosing {
+        50% {
+            left: 20px;
+        }
+        100% {
+            left: -100%;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    }
 }
 
-.modalOpening{
-    animation: modalOpen .5s forwards ease-out;
-}
+// @media (min-width: 1000px){
 
-.modalOpened{
-    left: 0;
-    background-color: rgba(0,0,0,.4);
-}
+// .header__modal-container{
+//     position: static;
+//     width: 100%;
+//     height: 100%;
+//     background-color: red;
+//     top: 0;
+//     left: 0;
+//     overflow: visible;
+//     z-index: 2;
 
-@keyframes modalOpen{
-    50%{left: 30px}
-    100%{left: 0px; background-color: rgba(0,0,0,.4)}
-}
+//     .header__modal-content-align{
 
-.modalClosing{
-    animation: modalClosing forwards .5s;
+//         width: 120%;
+//         height: 100%;
+//         padding: 10px 0 0 0;
+//         position: static;
+//         // left: -100%;
+//         // transition: left .3s ease-in-out;
+//         overflow: hidden;
 
-}
+//             .header__modal-close-btn{
+//                 padding-bottom: 30px;
+//                 display: none;
 
-.modalClosed{
-    left: -100%;
-    background-color: rgba(0,0,0,.0);
-}
+//                 .close-btn{
+//                 background: none;
+//                 border: none;
+//                 outline: none;
+//                 font-size: 20px;
+//                 display: none;
+//                 }
+//             }
 
+//             .header__modal__list-container{
 
-@keyframes modalClosing{
-    50%{left: 20px}
-    100%{left: -100%; background-color: rgba(0,0,0,.0)}
-}
+//                 .header__modal__list{
+//                     display: flex;
+
+//                 }
+//             }
+
+//             .header__modal__account{
+//                 margin: 20px 0;
+//             }
+
+//             .header__modal__account__list__item{
+
+//                 padding: 10px 0;
+//                 font-size: 18px;
+//                 color: lightslategrey;
+
+//             }
+//         }
+
+//         hr{
+//             height: 5px;
+//             background: black;
+//         }
+// }
+
+// .modalOpening{
+//     animation: modalOpen .5s forwards ease-out;
+// }
+
+// .modalOpened{
+//     left: 0;
+//     background-color: rgba(0,0,0,.4);
+// }
+
+// @keyframes modalOpen{
+//     50%{left: 30px}
+//     100%{left: 0px; background-color: rgba(0,0,0,.4)}
+// }
+
+// .modalClosing{
+//     animation: modalClosing forwards .5s;
+
+// }
+
+// .modalClosed{
+//     left: -100%;
+//     background-color: rgba(0,0,0,.0);
+// }
+
+// @keyframes modalClosing{
+//     50%{left: 20px}
+//     100%{left: -100%; background-color: rgba(0,0,0,.0)}
+// }
+
+// }

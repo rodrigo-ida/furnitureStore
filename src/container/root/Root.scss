@@ -8,4 +8,27 @@
     width: calc(100% - 40px);
     margin: 0 20px;
     height: auto;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}
+
+@media (min-width: 1000px){
+    .main{
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        background-color: white;
+    }
+    .contact-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr ;
+    }
+
+    .footer-placeholder{
+        height: 452px;
+    }
 }

@@ -1,8 +1,3 @@
-// <div className="new-products">
-//             <div className="new-products__title-container">
-//                 <h3 className="new-products__title">Novos Produtos</h3>
-//                 <p className="new-products__title-subtitle">Uma seleção dos melhores produtos que acabaram de chegar!</p>
-//             </div>
 
 .new-products{
 
@@ -68,4 +63,81 @@
 
         }
     }
+}
+
+
+@media (min-width: 1000px){
+    
+.new-products{
+
+    padding: 30px 0;
+
+    .new-products__title-container{
+
+        .new-products__title{
+            font-weight: 600;
+            text-align: center;
+            font-size: 18px;
+
+        }
+
+        .new-products__title-subtitle{
+
+            color: gray;
+            padding-top: 10px;
+            text-align: center;
+
+        }
+
+    }
+
+    .new-products__cards-container{
+        padding-top: 20px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
+
+    }
+
+    .new-products__description{
+        padding: 40px;
+        text-align: center;
+        padding: 100px 300px;
+
+        .new-products__description-title{
+            font-weight: 600;
+            font-style: italic;
+            font-size: 27px;
+            text-align: center;
+            word-spacing: 5px;
+            font-family: "Josefin Sans",sans-serif;
+
+            
+
+        }
+        .new-products__description-body{
+            padding: 20px 54px;
+            text-align: left;
+            font-size: 27px;
+            margin-left: 97px;
+            color: gray;
+            width: 547px;
+            word-spacing: 2px;
+            line-height: 1.7;
+            letter-spacing: 2px;
+            text-align: center;
+
+        }
+        .new-products__description-btn{
+            padding: 10px;
+            border: none;
+            color: white;
+            height: 62px;
+            background: black;
+            width: 73%;
+
+        }
+    }
+}
 }

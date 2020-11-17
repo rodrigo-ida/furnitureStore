@@ -11,3 +11,21 @@
 
 
 }
+
+@media (min-width: 1000px){
+
+    
+.categories{
+
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 100%; 
+
+
+
+}
+
+}
