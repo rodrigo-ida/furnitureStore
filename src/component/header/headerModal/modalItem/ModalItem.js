@@ -20,7 +20,6 @@ export default props => {
             item4={props.item4}
         />
     ) : ''
-        console.log(props.item1.img);
     useEffect(()=> props.setmodalItemshowUp(prev => prev = props.modalToggle))
 
     return(

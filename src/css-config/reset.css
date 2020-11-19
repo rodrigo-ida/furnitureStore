@@ -5,9 +5,7 @@
 
 *{
 	box-sizing: border-box;
-	font-family: 'Josefin Sans', sans-serif;
-	/* overflow-x: hidden; */
-	
+	font-family: 'Josefin Sans', sans-serif;	
 
 }
 
@@ -38,7 +36,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	overflow-x: hidden;
 
 	
 }
@@ -63,25 +60,5 @@ table {
 	border-spacing: 0;
 }
 
-body::-webkit-scrollbar {
-	width: 10px;
-  }
-  
-  /* Track */
-  body::-webkit-scrollbar-track {
-	background: white;
-	border-radius: 100px;
-	padding: 20px;
 
-  }
-  
-  /* Handle */
-  body::-webkit-scrollbar-thumb {
-	background-color: black;
-
-  }
-  
-  /* Handle on hover */
-  body::-webkit-scrollbar-thumb:hover {
-	background: #555;
-  }
+ 

@@ -16,10 +16,6 @@ export default (props) => {
         );
     };
 
-    const headerShow = () => {
-
-    }
-
     return (
         <CSSTransitionComponent
         unmountOnExit
@@ -67,13 +63,17 @@ export default (props) => {
                 <button className="header__right-btns__search-btn">
                     <i className="fas fa-search"></i>
                 </button>
-                <span className="header__right-btn__cart-pc-description">
+                <span className="header__right-btn__cart-pc-description"
+                 onClick={() => {
+                    document.querySelector(".root").style.overflow ="hidden";
+                    return props.setHeaderCartShow(true);
+                }}>
                         Meu Carrinho
                     </span>
                 <div
                     className="header__right-btns__cart"
                     onClick={() => {
-                        document.querySelector("body").style.overflow ="hidden";
+                        document.querySelector(".root").style.overflow ="hidden";
                         return props.setHeaderCartShow(true);
                     }}
                 >

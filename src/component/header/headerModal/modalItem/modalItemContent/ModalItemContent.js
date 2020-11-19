@@ -32,7 +32,6 @@ export default (props) => {
                 exitActive: "modal-item__content-exiting",
             }}
         >
-            {/* <div className='modal-item__content' onMouseLeave={closeBtnHandler} > */}
             <div className="modal-item__content">
                 <div className="modal-item__content__close-btn-container">
                     <button
@@ -54,7 +53,7 @@ export default (props) => {
                                     {props.item1.content}
                                 </p>
                             </div>
-                            <img src={props.item1.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item1.img} />
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-2">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -63,7 +62,7 @@ export default (props) => {
                                 </p>
                             </div>
 
-                            <img src={props.item2.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item2.img} />
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-3">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -71,7 +70,7 @@ export default (props) => {
                                     {props.item3.content}
                                 </p>
                             </div>
-                            <img src={props.item3.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item3.img} />
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-4">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -80,7 +79,7 @@ export default (props) => {
                                 </p>
                             </div>
 
-                            <img src={props.item4.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item4.img} />
                         </li>
                     </ul>
                 </div>

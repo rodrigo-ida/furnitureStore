@@ -26,11 +26,6 @@ import EncomendasImgItem4 from '../../../assets/header-modal-item-content/contac
 const HeaderModal = (props) => {
     const listItemsArray = [
         {
-            // nome: "Inicio",
-            // item1: {content:"Sobre Nós", img: InicioItemImg1},
-            // item2: {content:"Leia Nossas Dicas", img: InicioItemImg2},
-            // item3: {content:"Contate-nos", img: InicioImgItem3},
-            // item4: {content:"Visite Nossa Loja", img:  InicioImgItem4},
             nome: "Inicio",
             item1: {content:"Visite Nossa Loja", img: InicioItemImg1},
             item2: {content:"Leia Nossas Dicas"},
