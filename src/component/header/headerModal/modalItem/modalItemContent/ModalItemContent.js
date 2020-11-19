@@ -1,56 +1,90 @@
-import React,{useEffect} from 'react'
-import CSSTransition from 'react-transition-group/CSSTransition'
+import React, { useEffect } from "react";
+import CSSTransition from "react-transition-group/CSSTransition";
 
-import './ModalItemContent.scss'
+import "./ModalItemContent.scss";
 
-export default props => { 
+export default (props) => {
+    const { setModalContent, setModalItemMenu } = props;
 
-    const {setModalContent, setModalItemMenu} = props
+    const closeBtnHandler = (event) => {
+        event.stopPropagation();
 
+        setModalContent(false);
+        setTimeout(() => setModalItemMenu(false), 300);
+    };
 
-    const closeBtnHandler = (event)=>{
+    useEffect(() => {
+        setModalContent((prevState) => (prevState = true));
+        console.log(props.item1.img);
+    }, [setModalContent]);
 
-        event.stopPropagation()
-        
-        setModalContent(false)
-        setTimeout(()=> setModalItemMenu(false),300)
-    }
-
-
-    useEffect(()=>{
-        setModalContent(prevState => prevState = true)
-    },[ setModalContent])
-
-
-
-    return(
+    return (
         <CSSTransition
             in={props.modalContent}
             mountOnEnter
             unmountOnExit
             timeout={300}
             classNames={{
-                enter:'modal-item__content-enter',
-                enterActive:'modal-item__content-entering',
-                enterDone:'modal-item__content-entered',
-                exit:'modal-item__content-entered',
-                exitActive:'modal-item__content-exiting',
-            }}>
-            <div className='modal-item__content' onMouseLeave={closeBtnHandler} >
+                enter: "modal-item__content-enter",
+                enterActive: "modal-item__content-entering",
+                enterDone: "modal-item__content-entered",
+                exit: "modal-item__content-entered",
+                exitActive: "modal-item__content-exiting",
+            }}
+        >
+            {/* <div className='modal-item__content' onMouseLeave={closeBtnHandler} > */}
+            <div className="modal-item__content">
                 <div className="modal-item__content__close-btn-container">
-                    <button className='modal-item__content__close-btn' onClick={closeBtnHandler}>&larr; Voltar</button>
+                    <button
+                        className="modal-item__content__close-btn"
+                        onClick={closeBtnHandler}
+                    >
+                        &larr; Voltar
+                    </button>
                     <hr></hr>
                 </div>
                 <div className="modal-item__content__list-container">
-                    <ul className='modal-item__content__list'>
-                        <li className='modal-item__content__list__title'>{props.title}</li>
-                        <li className='modal-item__content__list__item'>{props.item1}</li>
-                        <li className='modal-item__content__list__item'>{props.item2}</li>
-                        <li className='modal-item__content__list__item'>{props.item3}</li>
-                        <li className='modal-item__content__list__item'>{props.item4}</li>
+                    <ul className="modal-item__content__list">
+                        <li className="modal-item__content__list__title">
+                            {props.title}
+                        </li>
+                        <li className="modal-item__content__list__item modal-item__content__list__item-1">
+                            <div className="modal-item__content__list__item__paragraph-container">
+                                <p className="modal-item__content__list__item__paragraph-first">
+                                    {props.item1.content}
+                                </p>
+                            </div>
+                            <img src={props.item1.img} />
+                        </li>
+                        <li className="modal-item__content__list__item modal-item__content__list__item-2">
+                            <div className="modal-item__content__list__item__paragraph-container">
+                                <p className="modal-item__content__list__item__paragraph">
+                                    {props.item2.content}
+                                </p>
+                            </div>
+
+                            <img src={props.item2.img} />
+                        </li>
+                        <li className="modal-item__content__list__item modal-item__content__list__item-3">
+                            <div className="modal-item__content__list__item__paragraph-container">
+                                <p className="modal-item__content__list__item__paragraph">
+                                    {props.item3.content}
+                                </p>
+                            </div>
+                            <img src={props.item3.img} />
+                        </li>
+                        <li className="modal-item__content__list__item modal-item__content__list__item-4">
+                            <div className="modal-item__content__list__item__paragraph-container">
+                                <p className="modal-item__content__list__item__paragraph">
+                                    {props.item4.content}
+                                </p>
+                            </div>
+
+                            <img src={props.item4.img} />
+                        </li>
                     </ul>
                 </div>
             </div>
         </CSSTransition>
-    )
-}
+    );
+};

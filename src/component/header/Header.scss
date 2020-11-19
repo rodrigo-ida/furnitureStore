@@ -4,7 +4,7 @@
     font-size: 20px;
 }
 
-.header{
+.header {
     width: 100vw;
     display: flex;
     position: fixed;
@@ -13,37 +13,37 @@
     background-color: white;
     z-index: 554;
 
-    .header__burger-btn-container{
+    .header__burger-btn-container {
         width: 33%;
         display: flex;
         align-items: center;
-    
-        .header__burger-btn{
+
+        .header__burger-btn {
             @include header-btn();
             outline: none;
         }
     }
 
-    .logo{
+    .logo {
         width: 33%;
         justify-self: center;
         text-align: center;
-
     }
 
-    .header__right-btns{
+    .header__right-btns {
         display: flex;
         width: 33%;
         align-items: center;
         justify-self: right;
         padding-left: 46px;
-        
 
-
-        .header__right-btns__search-btn{
+        .header__right-btns__search-btn {
             @include header-btn();
             margin-right: 10px;
+        }
 
+        .header__right-btn__cart-pc-description {
+            display: none;
         }
 
         .header__right-btns__cart {
@@ -52,19 +52,16 @@
             border-radius: 40px;
             width: 23px;
             height: 23px;
-           
+
             align-items: center;
             justify-content: center;
             display: flex;
         }
-
     }
 }
 
-
-@media (min-width: 1000px){
-
-    .header{
+@media (min-width: 1000px) {
+    .header {
         width: 100vw;
         display: flex;
         position: fixed;
@@ -73,53 +70,89 @@
         background-color: white;
         z-index: 555;
         height: 106px;
-    
-        .header__burger-btn-container{
+
+        .header__burger-btn-container {
             width: 33%;
             display: flex;
             align-items: center;
             height: 100%;
-        
-            .header__burger-btn{
+
+            .header__burger-btn {
                 @include header-btn();
                 outline: none;
             }
         }
-    
-        .logo{
+
+        .logo {
             width: 45px;
             height: 66px;
             justify-self: center;
             text-align: center;
-    
         }
-    
-        .header__right-btns{
+
+        .header__right-btns {
             display: flex;
             align-items: center;
             justify-content: flex-end;
             padding-right: 40px;
-    
-    
-            .header__right-btns__search-btn{
+
+            .header__right-btns__search-btn {
                 @include header-btn();
                 margin-right: 10px;
-    
             }
-    
+            .header__right-btn__cart-pc-description {
+                display: inline;
+                font-size: 20px;
+            }
+
             .header__right-btns__cart {
                 background-color: black;
                 color: white;
                 border-radius: 40px;
                 width: 23px;
                 height: 23px;
-               
+
                 align-items: center;
                 justify-content: center;
                 display: flex;
             }
-    
         }
-    }
 
+.header-entering{
+
+    animation: header-entering .3s forwards ease-in;
+}
+
+@keyframes header-entering {
+    to{height: 106px;}
+    
+}
+.header-entered{
+
+    height: 106px
+
+}
+.header-exit{
+    height: 106px
+
+}
+.header-exiting{
+    
+    animation: header-exiting .3s forwards ease-in;
+
+}
+
+@keyframes header-exiting {
+    to{height: 0px;}
+    
+}
+
+.header-exited{
+    
+    height: 0px
+}
+
+
+    
+    }
 }

@@ -20,7 +20,7 @@ export default props => {
             item4={props.item4}
         />
     ) : ''
-        
+        console.log(props.item1.img);
     useEffect(()=> props.setmodalItemshowUp(prev => prev = props.modalToggle))
 
     return(
@@ -44,7 +44,7 @@ export default props => {
                     <p className="modal-item-paragraph" >
                         {props.children}
                         <span className="modal-item-paragraph__arrow-mobile">&gt;</span>
-                        <span className="modal-item-paragraph__arrow-pc">  <i class="fas fa-caret-down"></i></span>                        
+                        {/* <span className="modal-item-paragraph__arrow-pc">  <i class="fas fa-caret-down"></i></span>                         */}
                         </p>
                     {modal}
                 </li>

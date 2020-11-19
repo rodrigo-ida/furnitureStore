@@ -21,6 +21,9 @@ export default props => {
         event.stopPropagation()
         setShow(false)
         props.setNewProductModalShowProduct(false)
+        props.setHeaderShow(true)
+        document.querySelector("body").style.overflow ="visible";
+
    }
     
     const [show, setShow] = useState(false)
@@ -33,6 +36,9 @@ export default props => {
         props.orderedQtd[1](orderQtd)
         setShow(false)
         props.setNewProductModalShowProduct(false)
+        props.setHeaderShow(true)
+        document.querySelector("body").style.overflow ="visible";
+
     }
 
     return(
@@ -71,12 +77,15 @@ export default props => {
                         <a className="new-products-look__description__link" href="/"> &rarr; Acesse a página do Produto</a>
                         <hr></hr>
                         <div className="new-products-look__btn-container">
-                            <button className="new-products-look__btn" onClick={subtract}>-</button>
-                            <p className="new-products-look__btn__qtd">{orderQtd}</p>
-                            <button className="new-products-look__btn" onClick={add}>+</button>
-                        </div>
-                        <div className="new-products-look__cart-add-container">
-                            <button className="new-products-look__cart-add" onClick={orderFinished}>Adicione ao Carrinho</button>
+
+                            <div className="new-products-look__quantity-btn-container">
+                                <button className="new-products-look__btn" onClick={subtract}>-</button>
+                                <p className="new-products-look__btn__qtd">{orderQtd}</p>
+                                <button className="new-products-look__btn" onClick={add}>+</button>
+                            </div>
+                            <div className="new-products-look__cart-add-container">
+                                <button className="new-products-look__cart-add" onClick={orderFinished}>Adicione ao Carrinho</button>
+                            </div>
                         </div>
                     </div>
                 </div>

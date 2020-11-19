@@ -38,6 +38,7 @@ export default props => {
     let REVIEW_NUMBER = reviewGenerator()
 
     const modal =  props.newProductModalShowProduct === props.title ? <NewProductsModalShow 
+    setHeaderShow={props.setHeaderShow}
                     newProductModalShow={props.newProductModalShow}
                     setNewProductModalShow={props.setNewProductModalShow}
                     newProductModalShowProduct={props.newProductModalShowProduct} 
@@ -64,7 +65,10 @@ export default props => {
             <ul className="new-products__card__icon-list" >
                 <li className="new-products__card__icon">
                     <button className="new-products__card__icon-btn" 
-                        onClick={()=>props.setNewProductModalShowProduct(props.title)}>
+                        onClick={()=>{
+                            props.setHeaderShow(false)
+                            document.querySelector("body").style.overflow ="hidden";
+                            props.setNewProductModalShowProduct(props.title)}}>
                         <i className="far fa-eye"></i>
                     </button>
                 </li>

@@ -56,7 +56,7 @@
     
     .modal-item{
         
-        width: auto;
+        width: 20%;
         display: block;
         padding: 0px;
         overflow: visible;
@@ -64,11 +64,12 @@
 
         
         .modal-item-paragraph{
-            font-size: 18px;
+            font-size: 26px;
             padding: 10px 30px 10px 0 ;
             font-weight: 300;
             display: block;
             width: auto;
+            color: rosybrown;
             
             .modal-item-paragraph__arrow-mobile{
                 display: none;
@@ -84,8 +85,14 @@
 
     .modal-item:hover{
 
-        background-color: orangered;
+        animation: show-border .4s forwards;
         
     }
+
+    @keyframes show-border{
+        to{ border-bottom: 1px solid wheat;
+            width: 50%;
+            }
+    } 
     
 }

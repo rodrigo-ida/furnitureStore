@@ -11,6 +11,7 @@ export default props => {
     
     const cards = props.productsData.map((e, index) => {
         return <Card 
+        setHeaderShow={props.setHeaderShow}
                     key={Math.random()}
                     img={e.img}
                     title={e.title}

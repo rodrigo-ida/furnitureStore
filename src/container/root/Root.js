@@ -22,6 +22,7 @@ import Img8 from '../../assets/newProductsImg/img8.jpg'
 
 export default props =>{
 
+    const [headerShow, setHeaderShow] = useState(true)
     const [modalToggle, setModalToggle] = useState(false)
     const [modalItemMenu, setModalItemMenu] = useState(false)
     const [modalItemshowUp, setmodalItemshowUp] = useState(false)
@@ -33,6 +34,9 @@ export default props =>{
     const [newProductModalShowProduct, setNewProductModalShowProduct] = useState(false)
     const [lorem, setLorem] = useState(false)
     const [qtdOrdered, setQtdOrdered] = useState(0)
+
+
+    
 
 
     const burgerBtnToggleHandler = ()=> {
@@ -128,6 +132,8 @@ export default props =>{
         <div className="root">
             <div className="header-container">
                 <Header 
+                headerShow={headerShow}
+                 setHeaderShow={setHeaderShow}
                     modalContent={modalContent}
                     setModalContent={setModalContent}
                     burgerBtnToggleHandler={burgerBtnToggleHandler} 
@@ -149,6 +155,7 @@ export default props =>{
             <div className="main"> 
                     <Categories />
                     <NewProducts 
+                    setHeaderShow={setHeaderShow}
                     newProductModalShow={newProductModalShow}
                     setNewProductModalShow={setNewProductModalShow}
                     newProductModalShowProduct={newProductModalShowProduct} 
