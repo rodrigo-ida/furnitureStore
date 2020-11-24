@@ -4,23 +4,23 @@ import CSSTransition from "react-transition-group/CSSTransition";
 import "./ModalItemContent.scss";
 
 export default (props) => {
-    const { setModalContent, setModalItemMenu } = props;
+    const { setShowModalContent, setModalItemMenu } = props;
 
     const closeBtnHandler = (event) => {
         event.stopPropagation();
 
-        setModalContent(false);
+        setShowModalContent(false);
         setTimeout(() => setModalItemMenu(false), 300);
     };
 
     useEffect(() => {
-        setModalContent((prevState) => (prevState = true));
+        setShowModalContent((prevState) => (prevState = true));
         console.log(props.item1.img);
-    }, [setModalContent]);
+    }, [setShowModalContent]);
 
     return (
         <CSSTransition
-            in={props.modalContent}
+            in={props.showModalContent}
             mountOnEnter
             unmountOnExit
             timeout={300}

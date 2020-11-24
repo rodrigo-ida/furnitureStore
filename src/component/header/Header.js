@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import CSSTransitionComponent from "react-transition-group/CSSTransition";
 
@@ -8,6 +8,15 @@ import HeaderModal from "./headerModal/HeaderModal";
 import HeaderCart from "./headerCart/HeaderCart";
 
 export default (props) => {
+
+
+    const [showModalContent, setShowModalContent] = useState(false);
+    const [modalToggle, setModalToggle] = useState(false);
+    const [modalItemMenu, setModalItemMenu] = useState(false);
+    const [modalItemshowUp, setmodalItemshowUp] = useState(false);
+    const [headerCartShow, setHeaderCartShow] = useState(false);
+
+
     const orderedGather = () => {
         const orderedGather = [];
         props.productsData.forEach((e) => orderedGather.push(e.orderedQtd[0]));
@@ -15,6 +24,20 @@ export default (props) => {
             (accumulator, current) => accumulator + current
         );
     };
+
+
+    const burgerBtnToggleHandler = () => {
+        document.querySelector("body").style.overflow = "hidden";
+        setModalToggle(true);
+    };
+
+    const headerCloseModalBtnHandler = () => {
+        setModalToggle(false);
+        setModalItemMenu(false);
+        setShowModalContent(false);
+        document.querySelector("body").style.overflow = "visible";
+    };
+
 
     return (
         <CSSTransitionComponent
@@ -34,24 +57,22 @@ export default (props) => {
                 <div className="header__burger-btn-container">
                     <button
                         className="header__burger-btn"
-                        onClick={props.burgerBtnToggleHandler}
+                        onClick={burgerBtnToggleHandler}
                     >
                         <i className="fas fa-bars"></i>
                     </button>
                     <HeaderModal
-                        modalContent={props.modalContent}
-                        setModalContent={props.setModalContent}
-                        headerCloseModalBtnHandler={
-                            props.headerCloseModalBtnHandler
-                        }
-                        modalToggle={props.modalToggle}
-                        setModalToggle={props.setModalToggle}
-                        burgerBtnToggleHandler={props.burgerBtnToggleHandler}
-                        modalItemMenu={props.modalItemMenu}
-                        setModalItemMenu={props.setModalItemMenu}
-                        modalItemshowUp={props.modalItemshowUp}
-                        setmodalItemshowUp={props.setmodalItemshowUp}
-                        setHeaderCartShow={props.setHeaderCartShow}
+                        showModalContent={showModalContent}
+                        setShowModalContent={setShowModalContent}
+                        headerCloseModalBtnHandler={headerCloseModalBtnHandler}
+                        modalToggle={modalToggle}
+                        setModalToggle={setModalToggle}
+                        burgerBtnToggleHandler={burgerBtnToggleHandler}
+                        modalItemMenu={modalItemMenu}
+                        setModalItemMenu={setModalItemMenu}
+                        modalItemshowUp={modalItemshowUp}
+                        setmodalItemshowUp={setmodalItemshowUp}
+                        setHeaderCartShow={setHeaderCartShow}
                     />
                 </div>
                 <div className="logo">
@@ -66,7 +87,7 @@ export default (props) => {
                         onClick={() => {
                             document.querySelector(".root").style.overflow =
                                 "hidden";
-                            return props.setHeaderCartShow(true);
+                            return setHeaderCartShow(true);
                         }}
                     >
                         Meu Carrinho
@@ -76,14 +97,14 @@ export default (props) => {
                         onClick={() => {
                             document.querySelector(".root").style.overflow =
                                 "hidden";
-                            return props.setHeaderCartShow(true);
+                            return setHeaderCartShow(true);
                         }}
                     >
                         {orderedGather()}
                     </div>
                     <HeaderCart
-                        headerCartShow={props.headerCartShow}
-                        setHeaderCartShow={props.setHeaderCartShow}
+                        headerCartShow={headerCartShow}
+                        setHeaderCartShow={setHeaderCartShow}
                         productsData={props.productsData}
                         qtdOrdered={props.qtdOrdered}
                         setQtdOrdered={props.setQtdOrdered}

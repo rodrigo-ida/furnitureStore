@@ -7,7 +7,7 @@ import Card from './newProductsCard/NewProductsCard'
 
 export default props => {
 
-
+    
     
     const cards = props.productsData.map((e, index) => {
         return <Card 
