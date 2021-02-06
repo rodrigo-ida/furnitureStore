@@ -1,196 +1,247 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+
 
 import './Carousel.scss'
 import CarouselItem from './carouselItem/CarouselItem'
 
-export default props =>{
-    
-    
-    const carouselContent = useRef(null)
-    let CAROUSEL_TOUCH_START;
-    let CAROUSEL_TOUCH_END;
-    let [CAROUSEL_X_POSITION, setCAROUSEL_X_POSITION] = useState(0)
-    // const CAROUSEL_TIMER_VALUE = 4000
-    let CAROUSEL_TIMER_ID
-    let MOUSE_MOVIMENT_ACTIVATOR = false
+export default props => {
 
-        
+
+    // const carouselContent = useRef(null)
+    // let CAROUSEL_TOUCH_START;
+    // let CAROUSEL_TOUCH_END;
+    // let [CAROUSEL_X_POSITION, setCAROUSEL_X_POSITION] = useState(0)
+    // const CAROUSEL_TIMER_VALUE = 4000
+    // let CAROUSEL_TIMER_ID
+    // let MOUSE_MOVIMENT_ACTIVATOR = false
+
+
     // useEffect(()=> carouselSelfExecution(CAROUSEL_TIMER_VALUE), [])
     // const carouselSelfExecution = timer => CAROUSEL_TIMER_ID = setInterval(carouselSlide, timer)
     // const carouselSlide = () => {
 
     //     // carouselslideCounter(forward)
     //     const carouselWidth = carouselContent.current.clientWidth / 3
-        
+
     //     const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
     //     carouselContent.current.style.left = carouselSlideCounter + 'px'
     // }
-     useEffect(()=> {
+    //  useEffect(()=> {
 
-        const carouselSlide = ()=>{
-            const carouselWidth = carouselContent.current.clientWidth / 3
-            const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
-            carouselContent.current.style.left = carouselSlideCounter + 'px'
-        }
-        carouselSlide()
-    }, [CAROUSEL_X_POSITION])
+    //     const carouselSlide = ()=>{
+    //         const carouselWidth = carouselContent.current.clientWidth / 3
+    //         const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
+    //         carouselContent.current.style.left = carouselSlideCounter + 'px'
+    //     }
+    //     carouselSlide()
+    // }, [CAROUSEL_X_POSITION])
 
 
-    const carouselslideCounter = (forward = true) => {
+    // const carouselslideCounter = (forward = true) => {
+
+    //     if(forward){
+    //         setCAROUSEL_X_POSITION(prevState => {
+    //             if(prevState === 2){
+    //                 return prevState = 0
+    //             }else{
+    //                 return prevState = prevState + 1
+    //             }
+    //         })
+    //     }else{
+    //         setCAROUSEL_X_POSITION(prevState => {
+    //             if(prevState === 0){
+    //                 return prevState = 2
+    //             }else{
+    //                 return prevState = prevState - 1
+    //             }
+    //         })
+    //     }
+
+    // }
+
+
+
+    // const carouselTouchStartHandler = (event) => {
+    //     CAROUSEL_TOUCH_START = event.changedTouches[0].clientX
+
+    //     carouselContent.current.style.transition = 'left 0s'
+    //     clearInterval(CAROUSEL_TIMER_ID)
+
+    // }
+
+    // const carouselTouchMoveHandler = event => {
+
+    //     const moviment = event.changedTouches[0].clientX
+    //     const movimentValue = moviment - CAROUSEL_TOUCH_START
+
+    //     const carouselWidth = carouselContent.current.clientWidth / 3
+    //     const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
+    //     const photoposition = carouselSlideCounter + movimentValue
+
+    //     carouselContent.current.style.left = photoposition + 'px'
+
+
+    //     if(movimentValue < 0){
+    //         CAROUSEL_TOUCH_END = true
+    //     }
+    //     if(movimentValue > 0){
+    //         CAROUSEL_TOUCH_END = false
+    //     }
+    // }
+
+    // const carouselTouchEndHandler = event => {
+
+    //     carouselContent.current.style.transition = 'left .2s'
+
+    //     // carouselSlide(CAROUSEL_TOUCH_END)
+    //     carouselslideCounter(CAROUSEL_TOUCH_END)
+    //     // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
+
+    // }
+
+
+    //     const carouselClickStartHandler = event =>{
+
+    //         console.log(event.button);
+    //         if(event.button === 2){ return;}
+    //             CAROUSEL_TOUCH_START = event.clientX
+    //             carouselContent.current.style.transition = 'left 0s'
+    //             clearInterval(CAROUSEL_TIMER_ID)
+
+    //     }
+
+
+
+    //     const carouselClickMoveHandler = event =>{
+
+    //         if(CAROUSEL_TOUCH_START){
+
+    //             MOUSE_MOVIMENT_ACTIVATOR = true
+    //             const moviment = event.clientX
+    //             const movimentValue = moviment - CAROUSEL_TOUCH_START
+
+    //             const carouselWidth = carouselContent.current.clientWidth / 3
+    //             const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
+    //             const photoposition = carouselSlideCounter + movimentValue
+
+    //             carouselContent.current.style.left = photoposition + 'px'
+
+
+    //             if(movimentValue < 0){
+    //                 CAROUSEL_TOUCH_END = true
+    //             }
+    //             if(movimentValue > 0){
+    //                 CAROUSEL_TOUCH_END = false
+    //             }
+
+
+    //         }
+    //     }
+
+    //     const carouselClickUpHandler = event => {
+
+    //         if(MOUSE_MOVIMENT_ACTIVATOR === true && !!CAROUSEL_TOUCH_START === true){
+
+    //             carouselContent.current.style.transition = 'left .2s'
+
+    //             // carouselSlide(CAROUSEL_TOUCH_END)
+    //             carouselslideCounter(CAROUSEL_TOUCH_END)
+    //             // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
+    //             MOUSE_MOVIMENT_ACTIVATOR = false
+    //             CAROUSEL_TOUCH_START = false
+    //         }
+    //         MOUSE_MOVIMENT_ACTIVATOR = false
+    //         CAROUSEL_TOUCH_START = false
+
+    // }
+
+    const [carouselPosition, setCarouselPosition] = useState(1)
+    const [mouseOver, setmouseOver] = useState(false)
+
+    const mouseOverHandler = () => {
+
+        clearInterval(intervalId.current)
+
+         setmouseOver(true)
+         }
+
+    const mouseLeaveHandler = ()=> {
+
+        intervalId.current = setInterval(() => setCarouselPosition(prev => {
+            return prev <= 2 ? prev + 1
+            : prev = 1
+        }), 1000)
+
+
+    }
+
+
+
+
+    const carouselVariants1 = {
+        animate2: { x: '-100vw', transition: { duration: .3 } },
+        animate3: { x: '-200vw', transition: { duration: .3 } },
+        animate4: { x: '0vw', transition: { duration: .3 } },
+
+    }
+
+    const intervalId = useRef(null)
+
+
+    useEffect(() => {
+
+        intervalId.current = setInterval(() => setCarouselPosition(prev => {
+            return prev <= 2 ? prev + 1
+            : prev = 1
+        }), 4000)
         
-        if(forward){
-            setCAROUSEL_X_POSITION(prevState => {
-                if(prevState === 2){
-                    return prevState = 0
-                }else{
-                    return prevState = prevState + 1
-                }
-            })
-        }else{
-            setCAROUSEL_X_POSITION(prevState => {
-                if(prevState === 0){
-                    return prevState = 2
-                }else{
-                    return prevState = prevState - 1
-                }
-            })
-        }
-
-    }
+    }, [])
 
 
-
-    const carouselTouchStartHandler = (event) => {
-        CAROUSEL_TOUCH_START = event.changedTouches[0].clientX
-
-        carouselContent.current.style.transition = 'left 0s'
-        clearInterval(CAROUSEL_TIMER_ID)
-
-    }
-
-    const carouselTouchMoveHandler = event => {
-
-        const moviment = event.changedTouches[0].clientX
-        const movimentValue = moviment - CAROUSEL_TOUCH_START
-
-        const carouselWidth = carouselContent.current.clientWidth / 3
-        const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
-        const photoposition = carouselSlideCounter + movimentValue
-
-        carouselContent.current.style.left = photoposition + 'px'
-
-
-        if(movimentValue < 0){
-            CAROUSEL_TOUCH_END = true
-        }
-        if(movimentValue > 0){
-            CAROUSEL_TOUCH_END = false
-        }
-    }
-
-    const carouselTouchEndHandler = event => {
-
-        carouselContent.current.style.transition = 'left .2s'
-        
-        // carouselSlide(CAROUSEL_TOUCH_END)
-        carouselslideCounter(CAROUSEL_TOUCH_END)
-        // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
+    // onTouchStart={carouselTouchStartHandler}
+    // onTouchMove={carouselTouchMoveHandler}
+    // onTouchEnd={carouselTouchEndHandler}
+    // onMouseDown={carouselClickStartHandler}
+    // onMouseMove={carouselClickMoveHandler}
+    // onMouseUp={carouselClickUpHandler}
+    // ref={carouselContent}
+   
     
-    }
 
 
-    const carouselClickStartHandler = event =>{
+    return (
+        <motion.div className="carousel"
 
-        console.log(event.button);
-        if(event.button === 2){ return;}
-            CAROUSEL_TOUCH_START = event.clientX
-            carouselContent.current.style.transition = 'left 0s'
-            clearInterval(CAROUSEL_TIMER_ID)
-        
-    }
+        >
 
-
-
-    const carouselClickMoveHandler = event =>{
-
-        if(CAROUSEL_TOUCH_START){
-
-            MOUSE_MOVIMENT_ACTIVATOR = true
-            const moviment = event.clientX
-            const movimentValue = moviment - CAROUSEL_TOUCH_START
-            
-            const carouselWidth = carouselContent.current.clientWidth / 3
-            const carouselSlideCounter = -carouselWidth * CAROUSEL_X_POSITION
-            const photoposition = carouselSlideCounter + movimentValue
-            
-            carouselContent.current.style.left = photoposition + 'px'
-            
-            
-            if(movimentValue < 0){
-                CAROUSEL_TOUCH_END = true
-            }
-            if(movimentValue > 0){
-                CAROUSEL_TOUCH_END = false
-            }
-            
-            
-        }
-    }
-
-    const carouselClickUpHandler = event => {
-
-        if(MOUSE_MOVIMENT_ACTIVATOR === true && !!CAROUSEL_TOUCH_START === true){
-
-            carouselContent.current.style.transition = 'left .2s'
-            
-            // carouselSlide(CAROUSEL_TOUCH_END)
-            carouselslideCounter(CAROUSEL_TOUCH_END)
-            // carouselSelfExecution(CAROUSEL_TIMER_VALUE)
-            MOUSE_MOVIMENT_ACTIVATOR = false
-            CAROUSEL_TOUCH_START = false
-        }
-        MOUSE_MOVIMENT_ACTIVATOR = false
-        CAROUSEL_TOUCH_START = false
-    
-}
+            <motion.div
+                animate={'animate' + carouselPosition}
+                variants={carouselVariants1}
+                onMouseOver={mouseOverHandler}
+                onMouseLeave={mouseLeaveHandler}
+                onClick={()=> console.log(MouseEvent)}
+                drag='x'
+                whileTap={{ cursor: "grabbing"}}
+                
 
 
 
 
+                className="carousel__content">
 
+                <motion.div   >
+                    <CarouselItem position="first" category="NOVIDADES" title="Novos Portateis" description="Bluetooth Speaker" />
+                </motion.div>
 
-    return(
-        <div className="carousel">
-            <div className="carousel__content" 
-                onTouchStart={carouselTouchStartHandler}
-                onTouchMove={carouselTouchMoveHandler}
-                onTouchEnd={carouselTouchEndHandler}
-                onMouseDown={carouselClickStartHandler}
-                onMouseMove={carouselClickMoveHandler}
-                onMouseUp={carouselClickUpHandler}
-                ref={carouselContent}
-                >
-                <CarouselItem position="first" 
-                category="NOVIDADES" 
-                title="Novos Portateis"
-                description="Bluetooth Speaker"
-                carouselState={CAROUSEL_X_POSITION}
-                textContainer="first-text-container"/>
+                <motion.div >
+                    <CarouselItem position="second" category="PROMOÇÕES DA BLACK FRIDAY" title="Promoções incríveis" description="até 30%" />
+                </motion.div>
 
-                <CarouselItem position="second"
-                category="PROMOÇÕES DA BLACK FRIDAY" 
-                title="Promoções incríveis"
-                description="até 30%"
-                carouselState={CAROUSEL_X_POSITION}
-                textContainer="second-text-container"/>
-
-                <CarouselItem position="third"
-                category="PARA SUA SALA" 
-                title="Coleção Outono"
-                description="Móveis sob Medida"
-                carouselState={CAROUSEL_X_POSITION}
-                textContainer="second-text-container"/>
-            </div>
-        </div>
+                <motion.div  >
+                    <CarouselItem position="third" category="PARA SUA SALA" title="Coleção Outono" description="Móveis sob Medida" />
+                </motion.div>
+            </motion.div>
+        </motion.div>
     )
 }

@@ -34,7 +34,6 @@ export default props => {
         }
         
         const animationExecution = carouselState =>{
-            console.log(window.screen.availWidth);
             
             if(carouselState === 0){
                if(window.screen.availWidth < 400){

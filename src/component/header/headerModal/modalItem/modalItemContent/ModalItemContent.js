@@ -15,7 +15,6 @@ export default (props) => {
 
     useEffect(() => {
         setShowModalContent((prevState) => (prevState = true));
-        console.log(props.item1.img);
     }, [setShowModalContent]);
 
     return (
@@ -53,7 +52,7 @@ export default (props) => {
                                     {props.item1.content}
                                 </p>
                             </div>
-                            <img className="modal-item__content__list__item-img" src={props.item1.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item1.img} alt="imagem do conteudo da lista do modal"/>
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-2">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -62,7 +61,7 @@ export default (props) => {
                                 </p>
                             </div>
 
-                            <img className="modal-item__content__list__item-img" src={props.item2.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item2.img} alt="imagem do conteudo da lista do modal"/>
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-3">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -70,7 +69,7 @@ export default (props) => {
                                     {props.item3.content}
                                 </p>
                             </div>
-                            <img className="modal-item__content__list__item-img" src={props.item3.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item3.img} alt="imagem do conteudo da lista do modal"/>
                         </li>
                         <li className="modal-item__content__list__item modal-item__content__list__item-4">
                             <div className="modal-item__content__list__item__paragraph-container">
@@ -79,7 +78,7 @@ export default (props) => {
                                 </p>
                             </div>
 
-                            <img className="modal-item__content__list__item-img" src={props.item4.img} />
+                            <img className="modal-item__content__list__item-img" src={props.item4.img} alt="imagem do conteudo da lista do modal" />
                         </li>
                     </ul>
                 </div>

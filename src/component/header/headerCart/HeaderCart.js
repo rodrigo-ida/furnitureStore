@@ -18,7 +18,12 @@ const HeaderCart = (props) => {
                 />
             );
         }
-    });
+        else{
+            return ''
+        }
+    })
+    
+    ;
 
     const subTotalCalculator = () => {
         let subTotalArray = [];

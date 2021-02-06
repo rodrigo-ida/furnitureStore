@@ -1,4 +1,10 @@
 
+@keyframes carousel-movement {
+    33%{ transform: translateX(-100vw)}
+    66%{ transform: translateX(-200vw)}
+    99%{ transform: translateX(-300vw)}
+}
+
 .carousel{
     width: 100vw;
     height: 300px;
@@ -25,10 +31,11 @@
     width: 100vw;
     height: calc(100vh - 106px);
     overflow: hidden;
-
+    
 }
 
 .carousel__content{
+    
 
     width: 300vw;
     height: 100%;

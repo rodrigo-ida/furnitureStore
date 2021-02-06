@@ -10,7 +10,7 @@ const ListItem = props => {
 
             <div className="header__cart__list-item">
                 <div className="header__cart__list-item__img-container">
-                    <img src={props.img} className="header__cart__list-item__img" />
+                    <img src={props.img} className="header__cart__list-item__img" alt="imagem do carrinho"/>
                     <button className="header__cart__list-item__close-btn"
                     onClick={()=>props.setQtd(0)}>X</button>
                 </div>
