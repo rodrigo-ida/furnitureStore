@@ -157,34 +157,7 @@ export default props => {
     // }
 
     const [carouselPosition, setCarouselPosition] = useState(1)
-    const [mouseOver, setmouseOver] = useState(false)
-
-    const mouseOverHandler = () => {
-
-        clearInterval(intervalId.current)
-
-         setmouseOver(true)
-         }
-
-    const mouseLeaveHandler = ()=> {
-
-        intervalId.current = setInterval(() => setCarouselPosition(prev => {
-            return prev <= 2 ? prev + 1
-            : prev = 1
-        }), 1000)
-
-
-    }
-
-
-
-
-    const carouselVariants1 = {
-        animate2: { x: '-100vw', transition: { duration: .3 } },
-        animate3: { x: '-200vw', transition: { duration: .3 } },
-        animate4: { x: '0vw', transition: { duration: .3 } },
-
-    }
+    const carouselTimer = 2000
 
     const intervalId = useRef(null)
 
@@ -194,20 +167,66 @@ export default props => {
         intervalId.current = setInterval(() => setCarouselPosition(prev => {
             return prev <= 2 ? prev + 1
             : prev = 1
-        }), 4000)
+        }), carouselTimer)
         
     }, [])
 
+    const mouseOverHandler = () =>  clearInterval(intervalId.current)
 
-    // onTouchStart={carouselTouchStartHandler}
-    // onTouchMove={carouselTouchMoveHandler}
-    // onTouchEnd={carouselTouchEndHandler}
-    // onMouseDown={carouselClickStartHandler}
-    // onMouseMove={carouselClickMoveHandler}
-    // onMouseUp={carouselClickUpHandler}
-    // ref={carouselContent}
-   
+         
+
+    const mouseLeaveHandler = ()=> {
+
+        intervalId.current = setInterval(() => setCarouselPosition(prev => {
+            return prev <= 2 ? prev + 1
+            : prev = 1
+        }), carouselTimer)
+    }
+
+
+
+
+    const carouselVariants1 = {
+        animate1: { x: '0vw', transition: { duration: .3 } },
+        animate2: { x: '-100vw', transition: { duration: .3 } },
+        animate3: { x: '-200vw', transition: { duration: .3 } },
+        animate4: { x: '0vw', transition: { duration: .3 } },
+
+    }
+
     
+
+
+
+    const carouselPositionDetector = () => {
+        const carouselPositionDetector = carouselVariants1['animate'+carouselPosition].x.replace('vw', '')
+        return +carouselPositionDetector
+
+
+    }
+
+   
+    function onPanHandler(event, info) {
+        mouseOverHandler()
+        console.log('coosaa');
+        const carouselTranslatedvalue = carouselPositionDetector()
+
+
+        carousel.current.style.transform = `translateX(calc(${carouselTranslatedvalue}vw + ${info.offset.x}px))`
+      }
+
+    const onPanEndHandler = (event, info) => {
+
+        if(info.offset.x < 0){
+            setCarouselPosition(prev => prev <= 2 ? prev + 1 : prev = 1)
+        }
+        if(info.offset.x > 0){
+            setCarouselPosition(prev => prev === 0 ? prev = 3 : prev - 1)
+
+        }
+        mouseLeaveHandler()
+    }
+      const carousel = useRef(null)
 
 
     return (
@@ -216,15 +235,23 @@ export default props => {
         >
 
             <motion.div
+                ref={carousel}
                 animate={'animate' + carouselPosition}
                 variants={carouselVariants1}
                 onMouseOver={mouseOverHandler}
                 onMouseLeave={mouseLeaveHandler}
-                onClick={()=> console.log(MouseEvent)}
-                drag='x'
                 whileTap={{ cursor: "grabbing"}}
-                
+                onPan={onPanHandler}
+                onPanEnd={onPanEndHandler}
 
+                
+    // onTouchStart={carouselTouchStartHandler}
+    // onTouchMove={carouselTouchMoveHandler}
+    // onTouchEnd={carouselTouchEndHandler}
+    // onMouseDown={carouselClickStartHandler}
+    // onMouseMove={carouselClickMoveHandler}
+    // onMouseUp={carouselClickUpHandler}
+    // ref={carouselContent}
 
 
 
